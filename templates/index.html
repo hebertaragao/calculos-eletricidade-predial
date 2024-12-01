@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Potência</title>
+</head>
+<body>
+    <h1>Calculadora de Potência</h1>
+    <form method="post">
+        <label for="pot_ativa">Potência Ativa (P) em watts:</label><br>
+        <input type="text" id="pot_ativa" name="pot_ativa"><br>
+        <label for="pot_aparente">Potência Aparente (S) em VA:</label><br>
+        <input type="text" id="pot_aparente" name="pot_aparente"><br>
+        <label for="pot_reativa">Potência Reativa (Q) em VAR:</label><br>
+        <input type="text" id="pot_reativa" name="pot_reativa"><br>
+        <label for="tensao_fn">Tensão Fase-Neutro (Vfn) em volts:</label><br>
+        <input type="text" id="tensao_fn" name="tensao_fn"><br>
+        <label for="tensao_ff">Tensão Fase-Fase (Vff) em volts:</label><br>
+        <input type="text" id="tensao_ff" name="tensao_ff"><br>
+        <label for="fator_correcao_temp">Fator de Correção de Temperatura (Fct):</label><br>
+        <input type="text" id="fator_correcao_temp" name="fator_correcao_temp"><br>
+        <label for="fator_correcao_agrup">Fator de Correção de Agrupamento (Fca):</label><br>
+        <input type="text" id="fator_correcao_agrup" name="fator_correcao_agrup"><br>
+        <label for="comprimento">Comprimento do Circuito (L) em metros:</label><br>
+        <input type="text" id="comprimento" name="comprimento"><br>
+        <label for="resistividade">Resistividade do Condutor (ρ) em Ω mm²/m:</label><br>
+        <input type="text" id="resistividade" name="resistividade"><br>
+        <label for="tensao_max">Máxima Queda de Tensão Admitida (V%) em porcentagem:</label><br>
+        <input type="text" id="tensao_max" name="tensao_max"><br><br>
+        <input type="submit" value="Calcular">
+    </form>
+
+    {% if fp is not none %}
+        <h2>Resultados</h2>
+        <p>Fator de potência (FP): {{ fp }}</p>
+        <p>Ângulo de fase (φ): {{ ang_fase }} graus</p>
+        <p>Corrente de projeto monofásica (Ib) em A: {{ corrente_mono }}</p>
+        <p>Corrente de projeto trifásica (Ib) em A: {{ corrente_tri }}</p>
+        <p>Corrente de potência aparente (S/V) em A: {{ corrente_aparente }}</p>
+        <p>Corrente de potência ativa (P/V.cosφ) em A: {{ corrente_ativa }}</p>
+        <p>Corrente de projeto corrigida (Ipc) em A: {{ corrente_corrigida }}</p>
+        <p>Secção nominal do condutor (S) em mm²: {{ seccao_nominal }}</p>
+    {% endif %}
+</body>
+</html>

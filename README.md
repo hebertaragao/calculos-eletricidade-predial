@@ -20,3 +20,7 @@ Fim do código para o setup.py
 
 por ultimo rode esse comando
 python setup.py build
+
+
+Converter python para web
+pip install Flask
